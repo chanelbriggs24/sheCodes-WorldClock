@@ -1,28 +1,64 @@
 body {
-  background: #f5f1fe;
+  background: #f9f7fe;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+h1 {
+  text-align: left;
+}
+
+h2 {
+  margin: 0 0 5px;
+  font-size: 28px;
+}
+
+select {
+  display: block;
+  width: 100%;
+  padding: 15px 15px;
+  border-radius: 8px;
+  font-size: 18px;
 }
 
 .container {
   background: white;
+  max-width: 600px;
   padding: 15px 30px;
-  margin: 30px;
-  border-radius: 5px;
+  margin: 100px auto;
+  border-radius: 10px;
+  box-shadow: 0px 20px 60px rgba(65, 50, 100, 0.08);
 }
 
-h1 {
-  text-align: center;
-}
-
-select {
-  width: 80%;
-  margin-left: 20px;
-}
-
-/* .cities {
+.cities {
+  margin: 20px 0;
   display: flex;
   justify-content: space-between;
-} */
+  padding: 30px 0;
+  border-bottom: 1px dashed rgba(0, 0, 0, 0.2);
+}
+/* targets the last item with the city class */
+.cities:last-child {
+  border-bottom: none;
+}
+
+.date {
+  opacity: 0.7;
+}
+
+.time {
+  font-size: 48px;
+  font-weight: bold;
+}
+
+.time span {
+  font-size: 24px;
+  line-height: 36px;
+  vertical-align: middle;
+}
 
 footer {
+  color: rgba(0, 0, 0, 0.8);
   text-align: center;
+  font-size: 18px;
+  margin: 10px;
 }
