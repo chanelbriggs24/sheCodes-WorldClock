@@ -1,6 +1,27 @@
+body {
+  background: #f5f1fe;
+}
+
+.container {
+  background: white;
+  padding: 15px 30px;
+  margin: 30px;
+  border-radius: 5px;
+}
+
 h1 {
   text-align: center;
 }
+
+select {
+  width: 80%;
+  margin-left: 20px;
+}
+
+/* .cities {
+  display: flex;
+  justify-content: space-between;
+} */
 
 footer {
   text-align: center;
