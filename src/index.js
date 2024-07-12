@@ -7,7 +7,7 @@ citySelect.addEventListener("change", (event) => {
   //the square brackets allows you to access the item in the array you created that you
   //want
   let cityName = cityTimeZone.replace("_", " ").split("/")[1];
-  console.log(cityTimeZone);
+
   let currentTime = moment().tz(cityTimeZone);
 
   // These lines of code will change the list of cities and their times
@@ -23,9 +23,9 @@ citySelect.addEventListener("change", (event) => {
           </div>
           <div class="time">${moment()
             .tz(cityTimeZone)
-            .format("h:mm:ss")} ${console.log(
-    cityTimeZone
-  )}<span class="time-of-day"> ${currentTime.format("A")}</span></div>
+            .format("h:mm:ss")}<span class="time-of-day"> ${currentTime.format(
+    "A"
+  )}</span></div>
         </div>`;
 });
 
@@ -33,19 +33,7 @@ function updateTime() {
   //   let cityContainerElement = document.querySelector("#cities-container");
   let londonElement = document.querySelector("#London");
   if (londonElement) {
-    console.log(londonElement);
-    let londonDateElement = londonElement.querySelector(".date");
-    let londonTimeElement = londonElement.querySelector(".time");
-
-    let londonTime = moment().tz("Europe/London").format("h:mm:ss ");
-
-    let londonDate = moment().tz("Europe/London").format("MMMM Do, YYYY");
-    londonDateElement.innerHTML = `${londonDate}`;
-    londonTimeElement.innerHTML = `${londonTime} <span class="time-of-day">${moment()
-      .tz("Europe/London")
-      .format("A")}</span>`;
-  } else {
-    console.log(londonElement);
+    // console.log(londonElement);
     let londonDateElement = londonElement.querySelector(".date");
     let londonTimeElement = londonElement.querySelector(".time");
 
@@ -57,6 +45,7 @@ function updateTime() {
       .tz("Europe/London")
       .format("A")}</span>`;
   }
+
   let newYorkElement = document.querySelector("#New-York");
 
   let newYorkDateElement = newYorkElement.querySelector(".date");
