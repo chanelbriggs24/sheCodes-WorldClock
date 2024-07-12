@@ -3,33 +3,35 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.30.1/moment.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment-timezone/0.5.45/moment-timezone-with-data-1970-2030.min.js"></script>
     <link rel="stylesheet" href="src/style.css" />
     <title>World Clock - Chanel Briggs</title>
   </head>
   <body>
     <div class="container">
       <h1>World Clock</h1>
-      <select name="" id="">
+      <select id="city-select">
         <option value="">Select a City...</option>
-        <option value="">London</option>
-        <option value="">New York</option>
-        <option value="">Charlotte</option>
-        <option value="">Pittsburgh</option>
+        <option value="Europe/London">London</option>
+        <option value="America/New_York">New York</option>
+        <option value="America/New_York">Charlotte</option>
+        <option value="America/New_York">Pittsburgh</option>
       </select>
 
-      <div class="cities">
+      <div class="cities" id="London">
         <div>
           <h2>London🎡</h2>
-          <div class="date">July 11th 2024</div>
+          <div class="date"></div>
         </div>
-        <div class="time">1:48:15 <span class="time-of-day">AM</span></div>
+        <div class="time"><span class="time-of-day"></span></div>
       </div>
-      <div class="cities">
+      <div class="cities" id="New-York">
         <div>
           <h2>New York 🗽</h2>
-          <div class="date">July 11th 2024</div>
+          <div class="date" id="ny-date"></div>
         </div>
-        <div class="time">1:48:15 <span class="time-of-day">AM</span></div>
+        <div class="time"><span class="time-of-day"></span></div>
       </div>
     </div>
     <footer>
