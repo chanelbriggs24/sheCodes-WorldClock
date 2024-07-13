@@ -1,34 +1,3 @@
-let citySelect = document.querySelector("#city-select");
-citySelect.addEventListener("change", (event) => {
-  let cityTimeZone = event.target.value;
-  //the replace function replaces the first parameter with the second parameter
-  //the split function takes a parameter and splits a string into seperate elements
-  //wherever that parameter shows up and creates an array of the separated elements
-  //the square brackets allows you to access the item in the array you created that you
-  //want
-  let cityName = cityTimeZone.replace("_", " ").split("/")[1];
-
-  let currentTime = moment().tz(cityTimeZone);
-
-  // These lines of code will change the list of cities and their times
-  // to the targeted or selected city time and date
-  let citiesElement = document.querySelector("#cities-container");
-  citiesElement.innerHTML = `
-  <div class="cities">
-    <div>
-        <h2>${cityName}</h2>
-            <div class="date" id="ny-date">${moment()
-              .tz(cityTimeZone)
-              .format("MMMM Do, YYYY")}</div>
-          </div>
-          <div class="time">${moment()
-            .tz(cityTimeZone)
-            .format("h:mm:ss")}<span class="time-of-day"> ${currentTime.format(
-    "A"
-  )}</span></div>
-        </div>`;
-});
-
 function updateTime() {
   //   let cityContainerElement = document.querySelector("#cities-container");
   let londonElement = document.querySelector("#London");
@@ -47,21 +16,51 @@ function updateTime() {
   }
 
   let newYorkElement = document.querySelector("#New-York");
+  if (newYorkElement) {
+    let newYorkDateElement = newYorkElement.querySelector(".date");
+    let newYorkTimeElement = newYorkElement.querySelector(".time");
 
-  let newYorkDateElement = newYorkElement.querySelector(".date");
-  let newYorkTimeElement = newYorkElement.querySelector(".time");
+    let newYorkTime = moment().tz("America/New_York").format("h:mm:ss ");
 
-  let newYorkTime = moment().tz("America/New_York").format("h:mm:ss ");
+    let newYorkDate = moment().tz("America/New_York").format("MMMM Do, YYYY");
+    newYorkDateElement.innerHTML = `${newYorkDate}`;
+    newYorkTimeElement.innerHTML = `${newYorkTime} <span class="time-of-day">${moment()
+      .tz("America/New_York")
+      .format("A")}</span>`;
+  }
+}
 
-  let newYorkDate = moment().tz("America/New_York").format("MMMM Do, YYYY");
-  newYorkDateElement.innerHTML = `${newYorkDate}`;
-  newYorkTimeElement.innerHTML = `${newYorkTime} <span class="time-of-day">${moment()
-    .tz("America/New_York")
-    .format("A")}</span>`;
+function updateCityListTime(event) {
+  let cityTimeZone = event.target.value;
+  //the replace function replaces the first parameter with the second parameter
+  //the split function takes a parameter and splits a string into seperate elements
+  //wherever that parameter shows up and creates an array of the separated elements
+  //the square brackets allows you to access the item in the array you created that you
+  //want
+  let cityName = cityTimeZone.replace("_", " ").split("/")[1];
+  let currentTime = moment().tz(cityTimeZone);
+
+  // These lines of code will change the list of cities and their times
+  // to the targeted or selected city time and date
+  let citiesElement = document.querySelector("#cities-container");
+  citiesElement.innerHTML = `
+  <div class="cities">
+    <div>
+        <h2>${cityName}</h2>
+            <div class="date">${currentTime.format("MMMM Do, YYYY")}</div>
+          </div>
+          <div class="time">${currentTime.format(
+            "h:mm:ss"
+          )}<span class="time-of-day"> ${currentTime.format("A")}</span></div>
+        </div>`;
 }
 
 updateTime();
 setInterval(updateTime, 1000);
+
+let citySelect = document.querySelector("#city-select");
+citySelect.addEventListener("change", updateCityListTime);
+// setInterval(updateCityListTime, 1000);
 
 //London
 // setInterval(() => {
