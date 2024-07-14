@@ -57,9 +57,13 @@ function updateCityListTime(event) {
 
 updateTime();
 setInterval(updateTime, 1000);
+setInterval(updateCityListTime, 1000);
 
 let citySelect = document.querySelector("#city-select");
 citySelect.addEventListener("change", updateCityListTime);
+
+// let homeButton = document.querySelector("button");
+// homeButton.addEventListener("click", updateTime);
 // setInterval(updateCityListTime, 1000);
 
 //London
