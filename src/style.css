@@ -1,5 +1,8 @@
 body {
-  background: #f9f7fe;
+  background-image: url(https://s3.amazonaws.com/shecodesio-production/uploads/files/000/133/637/original/globeBackground.jpg?1721082496);
+  background-repeat: no-repeat;
+  background-color: black;
+  background-size: cover;
   font-family: Arial, Helvetica, sans-serif;
 }
 
@@ -21,7 +24,11 @@ select {
 }
 
 .container {
-  background: white;
+  background: linear-gradient(
+    180.3deg,
+    rgb(221, 221, 221) 5.5%,
+    rgb(110, 136, 161) 90.2%
+  );
   max-width: 600px;
   padding: 15px 30px;
   margin: 100px auto;
@@ -56,9 +63,22 @@ select {
   vertical-align: middle;
 }
 
+.footer-container {
+  background-color: #a2b0bd;
+  border-radius: 8px;
+  max-width: 500px;
+  display: block;
+  margin: 0 auto;
+}
+
 footer {
   color: rgba(0, 0, 0, 0.8);
   text-align: center;
   font-size: 18px;
   margin: 10px;
+  margin-top: -80px;
+}
+
+a {
+  color: #3a3436;
 }
