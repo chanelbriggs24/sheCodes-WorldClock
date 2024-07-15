@@ -32,6 +32,10 @@ function updateTime() {
 
 function updateCityListTime(event) {
   let cityTimeZone = event.target.value;
+  if (cityTimeZone === "current") {
+    //moment().tz.guess() will guess the timezone of the user
+    cityTimeZone = moment().tz.guess();
+  }
   //the replace function replaces the first parameter with the second parameter
   //the split function takes a parameter and splits a string into seperate elements
   //wherever that parameter shows up and creates an array of the separated elements
