@@ -76,7 +76,8 @@ function updateCityListTime(event) {
           <div class="time">${currentTime.format(
             "h:mm:ss"
           )}<span class="time-of-day"> ${currentTime.format("A")}</span></div>
-        </div>`;
+        </div>
+        <a href="/" class="homepage">Homepage </a>`;
   // use setInterval and create a function that calls the updateCityListTime function so that it updates
   //every second.
   setInterval(() => {

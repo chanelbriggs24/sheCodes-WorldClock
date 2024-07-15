@@ -63,6 +63,14 @@ select {
   vertical-align: middle;
 }
 
+.homepage {
+  background-color: white;
+  border-radius: 8px;
+  margin-bottom: 100px;
+  padding: 10px;
+  text-decoration: none;
+}
+
 .footer-container {
   background-color: #a2b0bd;
   border-radius: 8px;
