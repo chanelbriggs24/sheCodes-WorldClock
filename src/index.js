@@ -1,88 +1,46 @@
-// function updateTime() {
-//   //   let cityContainerElement = document.querySelector("#cities-container");
-//   let londonElement = document.querySelector("#London");
-//   if (londonElement) {
-//     let londonDateElement = londonElement.querySelector(".date");
-//     let londonTimeElement = londonElement.querySelector(".time");
-
-//     let londonTime = moment().tz("Europe/London").format("h:mm:ss ");
-
-//     let londonDate = moment().tz("Europe/London").format("MMMM Do, YYYY");
-//     londonDateElement.innerHTML = `${londonDate}`;
-//     londonTimeElement.innerHTML = `${londonTime} <span class="time-of-day">${moment()
-//       .tz("Europe/London")
-//       .format("A")}</span>`;
-//   }
-
-//   let newYorkElement = document.querySelector("#New-York");
-//   if (newYorkElement) {
-//     let newYorkDateElement = newYorkElement.querySelector(".date");
-//     let newYorkTimeElement = newYorkElement.querySelector(".time");
-
-//     let newYorkTime = moment().tz("America/New_York").format("h:mm:ss ");
-
-//     let newYorkDate = moment().tz("America/New_York").format("MMMM Do, YYYY");
-//     newYorkDateElement.innerHTML = `${newYorkDate}`;
-//     newYorkTimeElement.innerHTML = `${newYorkTime} <span class="time-of-day">${moment()
-//       .tz("America/New_York")
-//       .format("A")}</span>`;
-//   }
-
-//   let dubaiElement = document.querySelector("#Dubai");
-//   if (dubaiElement) {
-//     let dubaiDateElement = dubaiElement.querySelector(".date");
-//     let dubaiTimeElement = dubaiElement.querySelector(".time");
-
-//     let dubaiTime = moment().tz("Asia/Dubai").format("h:mm:ss ");
-
-//     let dubaiDate = moment().tz("Asia/Dubai").format("MMMM Do, YYYY");
-//     dubaiDateElement.innerHTML = `${dubaiDate}`;
-//     dubaiTimeElement.innerHTML = `${dubaiTime} <span class="time-of-day">${moment()
-//       .tz("Asia/Dubai")
-//       .format("A")}</span>`;
-//   }
-// }
-
-setInterval(function () {
+function updateTime() {
   let londonElement = document.querySelector("#London");
-  let londonDateElement = londonElement.querySelector(".date");
-  let londonTimeElement = londonElement.querySelector(".time");
+  if (londonElement) {
+    let londonDateElement = londonElement.querySelector(".date");
+    let londonTimeElement = londonElement.querySelector(".time");
 
-  let londonTime = moment().tz("Europe/London").format("H:MM:SS ");
+    let londonTime = moment().tz("Europe/London").format("h:mm:ss ");
 
-  let londonDate = moment().tz("Europe/London").format("MMMM Do, YYYY");
-  londonDateElement.innerHTML = `${londonDate}`;
-  londonTimeElement.innerHTML = `${londonTime} <span class="time-of-day">${moment()
-    .tz("Europe/London")
-    .format("A")}</span>`;
-
-  //NewYork
+    let londonDate = moment().tz("Europe/London").format("MMMM Do, YYYY");
+    londonDateElement.innerHTML = `${londonDate}`;
+    londonTimeElement.innerHTML = `${londonTime} <span class="time-of-day">${moment()
+      .tz("Europe/London")
+      .format("A")}</span>`;
+  }
 
   let newYorkElement = document.querySelector("#New-York");
-  let newYorkDateElement = newYorkElement.querySelector(".date");
-  let newYorkTimeElement = newYorkElement.querySelector(".time");
+  if (newYorkElement) {
+    let newYorkDateElement = newYorkElement.querySelector(".date");
+    let newYorkTimeElement = newYorkElement.querySelector(".time");
 
-  let newYorkTime = moment().tz("America/New_York").format("H:MM:SS ");
+    let newYorkTime = moment().tz("America/New_York").format("h:mm:ss ");
 
-  let newYorkDate = moment().tz("America/New_York").format("MMMM Do, YYYY");
-  newYorkDateElement.innerHTML = `${newYorkDate}`;
-  newYorkTimeElement.innerHTML = `${newYorkTime} <span class="time-of-day">${moment()
-    .tz("America/New_York")
-    .format("A")}</span>`;
+    let newYorkDate = moment().tz("America/New_York").format("MMMM Do, YYYY");
+    newYorkDateElement.innerHTML = `${newYorkDate}`;
+    newYorkTimeElement.innerHTML = `${newYorkTime} <span class="time-of-day">${moment()
+      .tz("America/New_York")
+      .format("A")}</span>`;
+  }
 
   let dubaiElement = document.querySelector("#Dubai");
+  if (dubaiElement) {
+    let dubaiDateElement = dubaiElement.querySelector(".date");
+    let dubaiTimeElement = dubaiElement.querySelector(".time");
 
-  let dubaiDateElement = dubaiElement.querySelector(".date");
-  let dubaiTimeElement = dubaiElement.querySelector(".time");
+    let dubaiTime = moment().tz("Asia/Dubai").format("h:mm:ss ");
 
-  let dubaiTime = moment().tz("Asia/Dubai").format("h:mm:ss ");
-
-  let dubaiDate = moment().tz("Asia/Dubai").format("MMMM Do, YYYY");
-  dubaiDateElement.innerHTML = `${dubaiDate}`;
-  dubaiTimeElement.innerHTML = `${dubaiTime} <span class="time-of-day">${moment()
-    .tz("Asia/Dubai")
-    .format("A")}</span>`;
-}, 1000);
+    let dubaiDate = moment().tz("Asia/Dubai").format("MMMM Do, YYYY");
+    dubaiDateElement.innerHTML = `${dubaiDate}`;
+    dubaiTimeElement.innerHTML = `${dubaiTime} <span class="time-of-day">${moment()
+      .tz("Asia/Dubai")
+      .format("A")}</span>`;
+  }
+}
 
 function updateCityListTime(event) {
   let citiesElement = document.querySelector("#cities-container");
@@ -126,6 +84,8 @@ function updateCityListTime(event) {
   }, 1000);
 }
 
+updateTime();
+setInterval(updateTime, 1000);
 let citySelect = document.querySelector("#city-select");
 citySelect.addEventListener("change", updateCityListTime);
 
