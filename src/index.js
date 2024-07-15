@@ -1,4 +1,18 @@
 function updateTime() {
+  let charlotteElement = document.querySelector("#Charlotte");
+  if (charlotteElement) {
+    let charlotteDateElement = charlotteElement.querySelector(".date");
+    let charlotteTimeElement = charlotteElement.querySelector(".time");
+
+    let charlotteTime = moment().tz("America/New_York").format("h:mm:ss ");
+
+    let charlotteDate = moment().tz("America/New_York").format("MMMM Do, YYYY");
+    charlotteDateElement.innerHTML = `${charlotteDate}`;
+    charlotteTimeElement.innerHTML = `${charlotteTime} <span class="time-of-day">${moment()
+      .tz("America/New_York")
+      .format("A")}</span>`;
+  }
+
   let londonElement = document.querySelector("#London");
   if (londonElement) {
     let londonDateElement = londonElement.querySelector(".date");
